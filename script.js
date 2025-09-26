@@ -1,14 +1,19 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, addDoc, query, where, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+// import { initializeApp } from "./firebase/app.js";
+// import { getFirestore, collection, addDoc, query, where, orderBy, getDocs } from "./firebase/firestore.js";
+// import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "./firebase/auth.js";
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+import { getFirestore, collection, addDoc, query, where, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyBgQnu-v228q7D3w9ynfk5l1zbUbQEl1oM",
+    authDomain: "compaignform-b562c.firebaseapp.com",
+    databaseURL: "https://compaignform-b562c-default-rtdb.firebaseio.com",
+    projectId: "compaignform-b562c",
+    storageBucket: "compaignform-b562c.firebasestorage.app",
+    messagingSenderId: "79061079197",
+    appId: "1:79061079197:web:78bf12bd1207921542b074"
 };
 
 const app = initializeApp(firebaseConfig);
