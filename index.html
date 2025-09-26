@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Income & Expense Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+<!--Auth Section -->
+<div id="auth-section">
+  <h2>Login or Register</h2>
+  <input type="email" id="auth-email" placeholder="Email" />
+  <input type="password" id="auth-password" placeholder="Password" />
+  <button onclick="login()">Login</button>
+  <button onclick="register()">Register</button>
+</div>
+
+<!--App Section -->
+<div id="app-section" style="display:none;">
+  <div class="menu-bar">
+    <button onclick="showForm('home')">Home</button>
+    <button onclick="showForm('income')">Income</button>
+    <button onclick="showForm('expense')">Expense</button>
+    <button id="logout" onclick="logout()">Logout</button>
+  </div>
+
+  <!--Dashboard -->
+  <div id="home-form" class="form-section active">
+    <h2>Dashboard</h2>
+    <label for="monthly-budget">Set Monthly Budget:</label>
+    <input type="number" id="monthly-budget" placeholder="Enter amount" />
+    <button onclick="checkBudget()">Check Budget</button>
+    <p id="budget-warning" style="color:red;"></p>
+    <canvas id="summaryChart"></canvas>
+    <canvas id="trendChart"></canvas>
+    <canvas id="categoryChart"></canvas>
+  </div>
+
+  <!--Income Form -->
+  <div id="income-form" class="form-section">
+    <h2>Income Entry</h2>
+    <input type="date" id="income-date" />
+    <input type="number" id="income-amount" placeholder="Amount" />
+    <input type="text" id="income-source" placeholder="Source" />
+    <button class="submit" onclick="submitIncome()">Submit Income</button>
+    <select id="income-month-filter" onchange="loadIncome()">
+      <option value="">All Months</option>
+    </select>
+    <button onclick="exportIncome()">Export Income</button>
+    <table id="income-table">
+      <thead><tr><th>Date</th><th>Amount</th><th>Source</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!--Expense Form -->
+  <div id="expense-form" class="form-section">
+    <h2>Expense Entry</h2>
+    <input type="date" id="expense-date" />
+    <input type="number" id="expense-amount" placeholder="Amount" />
+    <input type="text" id="expense-category" placeholder="Category" />
+    <button class="submit" onclick="submitExpense()">Submit Expense</button>
+    <select id="expense-month-filter" onchange="loadExpense()">
+      <option value="">All Months</option>
+    </select>
+    <button onclick="exportExpense()">Export Expense</button>
+    <table id="expense-table">
+      <thead><tr><th>Date</th><th>Amount</th><th>Category</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
